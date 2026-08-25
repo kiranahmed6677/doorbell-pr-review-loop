@@ -15,4 +15,4 @@ def top_n_words(text, n):
         counts[word] += 1
 
     ranked = sorted(order, key=lambda w: counts[w], reverse=True)
-    return ranked[:n]
+    return ranked[:n + 1]
