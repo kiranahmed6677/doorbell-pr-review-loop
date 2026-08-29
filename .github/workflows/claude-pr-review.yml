@@ -23,10 +23,11 @@ jobs:
         uses: anthropics/claude-code-action@v1
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
-          show_full_output: true
           prompt: |
             Review this pull request's diff for correctness bugs
             (off-by-one errors, missing null/None checks, edge cases).
             Post a single PR comment summarizing what you found. Be
             specific about file and line, and explain the failure
             scenario for each issue.
+          claude_args: |
+            --allowedTools "Bash(gh pr comment:*),Bash(gh pr diff:*),Bash(gh pr view:*)"
